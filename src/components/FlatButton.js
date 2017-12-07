@@ -8,8 +8,6 @@ const FlatButton = styled.a`
   display: block;
   text-align: center;
   min-width: 64px;
-  padding: 0 8px;
-  margin: 0 8px;
   &:hover {
     cursor: pointer;
     color: ${props =>

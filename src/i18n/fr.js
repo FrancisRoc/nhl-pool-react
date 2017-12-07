@@ -3,6 +3,6 @@ export default {
   'login.email': 'Courriel',
   'login.password': 'Mot de passe',
   'login.loginButton': 'Connexion',
-  'login.registerButton': "S'inscrire",
+  'login.registerButton': 'Inscrivez-vous maintenant',
   'login.newMember': 'Nouveau sur Nhl Pool Helper?',
 };

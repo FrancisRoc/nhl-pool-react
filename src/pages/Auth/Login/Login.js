@@ -26,7 +26,7 @@ const messages = defineMessages({
   },
   registerButton: {
     id: 'login.registerButton',
-    defaultMessage: 'Register',
+    defaultMessage: 'Sign up now',
   },
   newMember: {
     id: 'login.newMember',
@@ -52,21 +52,29 @@ const InputIcon = styled.i`padding: 5px;`;
 const ActionsSection = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   padding-left: 35px;
 `;
 const LoginButton = styled(Button)`width: 125px;`;
 
-const RegisterSection = styled.div`
-  display: flex;
-  align-items: center;
+const NewMemberText = styled.div`
+  color: ${props => props.theme.palette.text};
+  margin-top: 10px;
 `;
-const NewMemberText = styled.div`color: ${props => props.theme.palette.text};`;
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = { email: '', password: '', showErrors: false };
   }
+
+  onEmailChange = newValue => {
+    this.setState({ email: newValue });
+  };
+
+  onPasswordChange = newValue => {
+    this.setState({ password: newValue });
+  };
 
   render() {
     const { formatMessage } = this.props.intl;
@@ -82,6 +90,7 @@ class Login extends React.Component {
           <StyledInput
             placeholder={formatMessage(messages.email)}
             value={this.state.email}
+            onChange={e => this.onEmailChange(e.target.value)}
           />
         </InputWrapper>
         <InputWrapper>
@@ -90,7 +99,9 @@ class Login extends React.Component {
           </IconWrapper>
           <StyledInput
             placeholder={formatMessage(messages.password)}
+            type="password"
             value={this.state.password}
+            onChange={e => this.onPasswordChange(e.target.value)}
           />
         </InputWrapper>
         <ActionsSection>
@@ -100,17 +111,14 @@ class Login extends React.Component {
           >
             <FormattedMessage {...messages.loginButton} />
           </LoginButton>
-          <RegisterSection>
-            <NewMemberText>
-              <FormattedMessage {...messages.newMember} />
-            </NewMemberText>
-            <FlatButton
-              onClick={() =>
-                this.onSubmit(this.state.email, this.state.password)}
-            >
-              <FormattedMessage {...messages.registerButton} />
-            </FlatButton>
-          </RegisterSection>
+          <NewMemberText>
+            <FormattedMessage {...messages.newMember} />
+          </NewMemberText>
+          <FlatButton
+            onClick={() => this.onSubmit(this.state.email, this.state.password)}
+          >
+            <FormattedMessage {...messages.registerButton} />
+          </FlatButton>
         </ActionsSection>
       </LoginForm>
     );
