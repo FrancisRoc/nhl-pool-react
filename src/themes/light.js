@@ -16,10 +16,11 @@ export default {
     textLight: '#818181',
     alternateText: '#ecf0f1',
     canvas: '#ecf0f1',
-    border: '#a5a5b1', // To change ?
-    border2: 'gainsboro', // To change ?
+    border: '#a5a5b1',
+    border2: 'gainsboro',
     white: 'white',
     black: '#000000',
     neutral: '#7f7f7f',
+    link: '#4990e2',
   },
 };
