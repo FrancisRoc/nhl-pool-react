@@ -15,7 +15,7 @@ const StyledInput = styled.input`
   transition: border 0.25s ease-in-out;
 
   &:focus {
-    border-color: ${props => props.theme.palette.accent1};
+    border-color: ${props => props.theme.palette.link};
     outline: 0;
     box-shadow: none;
   }

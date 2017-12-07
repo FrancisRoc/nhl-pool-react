@@ -34,10 +34,7 @@ const messages = defineMessages({
   },
 });
 
-const LoginForm = styled.div`
-  height: 500px;
-  text-align: center;
-`;
+const LoginForm = styled.div`text-align: center;`;
 
 const StyledInput = styled(Input)`margin: 8px 0;`;
 

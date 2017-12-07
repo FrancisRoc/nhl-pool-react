@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import Color from 'color';
 
 const FlatButton = styled.a`
-  color: ${props => props.theme.palette.primary};
+  color: ${props => props.theme.palette.link};
   line-height: 36px;
   display: block;
   text-align: center;
@@ -11,7 +12,10 @@ const FlatButton = styled.a`
   margin: 0 8px;
   &:hover {
     cursor: pointer;
-    color: ${props => props.theme.palette.primaryDark};
+    color: ${props =>
+      Color(props.theme.palette.link)
+        .darken(0.3)
+        .toString()};
   }
 
   &:disabled {

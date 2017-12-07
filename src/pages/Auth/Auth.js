@@ -2,6 +2,7 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Login from './Login/Login';
+import Pannel from '../../components/Pannel';
 
 const MainLayout = styled.div`
   position: absolute;
@@ -11,7 +12,7 @@ const MainLayout = styled.div`
   right: 0;
   bottom: 0;
 `;
-const AuthFrame = styled.div`
+const AuthFrame = styled(Pannel)`
   margin-left: auto;
   margin-right: auto;
   max-width: 450px;
