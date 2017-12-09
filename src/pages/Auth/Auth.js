@@ -1,7 +1,5 @@
-import { Route, Redirect, Switch } from 'react-router-dom';
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Login from './Login/Login';
 import Pannel from '../../components/Pannel';
 
 const MainLayout = styled.div`
@@ -21,15 +19,11 @@ const AuthFrame = styled(Pannel)`
 
 class Auth extends Component {
   render() {
+    const { isAuthenticated } = this.props;
     return (
       <div>
         <MainLayout>
-          <AuthFrame>
-            <Switch>
-              <Route path="/login" component={Login} />
-              <Redirect to="/login" />
-            </Switch>
-          </AuthFrame>
+          <AuthFrame>{this.props.children}</AuthFrame>
         </MainLayout>
       </div>
     );

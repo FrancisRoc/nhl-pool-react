@@ -1,9 +1,9 @@
-import React from 'react';
 import { connect } from 'react-redux';
-import Auth from './Auth/Auth';
+import React from 'react';
+
 const App = ({ children }) => (
   <div style={{ minWidth: '980px' }}>
-    <Auth />
+    <div>{children}</div>
   </div>
 );
 

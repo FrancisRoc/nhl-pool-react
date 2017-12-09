@@ -2,7 +2,6 @@ import React from 'react';
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 import styled from 'styled-components';
 import Input from '../../../components/forms/Input';
-import Label from '../../../components/forms/Label';
 import FlatButton from '../../../components/FlatButton';
 import Button from '../../../components/Button';
 import H2 from '../../../components/H2';
@@ -34,9 +33,13 @@ const messages = defineMessages({
   },
 });
 
-const LoginForm = styled.div`text-align: center;`;
+const LoginForm = styled.div`
+  text-align: center;
+`;
 
-const StyledInput = styled(Input)`margin: 8px 0;`;
+const StyledInput = styled(Input)`
+  margin: 8px 0;
+`;
 
 const InputWrapper = styled.div`
   display: flex;
@@ -47,7 +50,9 @@ const IconWrapper = styled.div`
   justify-content: center;
   min-width: 35px;
 `;
-const InputIcon = styled.i`padding: 5px;`;
+const InputIcon = styled.i`
+  padding: 5px;
+`;
 
 const ActionsSection = styled.div`
   display: flex;
@@ -55,7 +60,9 @@ const ActionsSection = styled.div`
   align-items: flex-start;
   padding-left: 35px;
 `;
-const LoginButton = styled(Button)`width: 125px;`;
+const LoginButton = styled(Button)`
+  width: 100%;
+`;
 
 const NewMemberText = styled.div`
   color: ${props => props.theme.palette.text};
@@ -76,8 +83,13 @@ class Login extends React.Component {
     this.setState({ password: newValue });
   };
 
+  onSubmit = (email, password) => {
+    this.props.onLogin({ email, password });
+  };
+
   render() {
     const { formatMessage } = this.props.intl;
+    console.log('LOGIN');
     return (
       <LoginForm>
         <H2>
