@@ -5,4 +5,6 @@ export default {
   'login.loginButton': 'Connexion',
   'login.registerButton': 'Inscrivez-vous maintenant',
   'login.newMember': 'Nouveau sur Nhl Pool Helper?',
+
+  'register.signUp': 'Inscription',
 };

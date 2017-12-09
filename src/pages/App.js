@@ -7,12 +7,5 @@ const App = ({ children }) => (
   </div>
 );
 
-const mapStateToProps = (
-  {
-    /*auth*/
-  }
-) => {
-  //const { loading } = auth;
-  //return { loading };
-};
-export default connect(mapStateToProps)(App);
+const mapStateToProps = state => ({});
+export default connect(mapStateToProps, null)(App);

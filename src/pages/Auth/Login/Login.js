@@ -1,10 +1,11 @@
-import React from 'react';
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
-import styled from 'styled-components';
 import Input from '../../../components/forms/Input';
-import FlatButton from '../../../components/FlatButton';
 import Button from '../../../components/Button';
 import H2 from '../../../components/H2';
+import styled from 'styled-components';
+import { Link } from 'react-router';
+import React from 'react';
+import Color from 'color';
 
 const messages = defineMessages({
   welcome: {
@@ -62,6 +63,7 @@ const ActionsSection = styled.div`
 `;
 const LoginButton = styled(Button)`
   width: 100%;
+  margin: 8px 0;
 `;
 
 const NewMemberText = styled.div`
@@ -69,10 +71,21 @@ const NewMemberText = styled.div`
   margin-top: 10px;
 `;
 
+const RegisterLink = styled(Link)`
+  color: ${props => props.theme.palette.link};
+  &:hover {
+    cursor: pointer;
+    color: ${props =>
+      Color(props.theme.palette.link)
+        .darken(0.3)
+        .toString()};
+  }
+`;
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { email: '', password: '', showErrors: false };
+    this.state = { email: '', password: '' };
   }
 
   onEmailChange = newValue => {
@@ -89,9 +102,15 @@ class Login extends React.Component {
 
   render() {
     const { formatMessage } = this.props.intl;
-    console.log('LOGIN');
     return (
-      <LoginForm>
+      <LoginForm
+        onKeyPress={e => {
+          console.log('KETPRESS: ', e.key);
+          if (e.key === 'Enter') {
+            this.onSubmit(this.state.email, this.state.password);
+          }
+        }}
+      >
         <H2>
           <FormattedMessage {...messages.welcome} />
         </H2>
@@ -126,11 +145,9 @@ class Login extends React.Component {
           <NewMemberText>
             <FormattedMessage {...messages.newMember} />
           </NewMemberText>
-          <FlatButton
-            onClick={() => this.onSubmit(this.state.email, this.state.password)}
-          >
+          <RegisterLink to="/register" style={{ textDecoration: 'none' }}>
             <FormattedMessage {...messages.registerButton} />
-          </FlatButton>
+          </RegisterLink>
         </ActionsSection>
       </LoginForm>
     );

@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  Router,
-  Route,
-  IndexRoute,
-  IndexRedirect,
-  browserHistory,
-} from 'react-router';
+import { Router, Route, IndexRedirect, browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { IntlProvider } from 'react-intl';
 import { ThemeProvider } from 'styled-components';
@@ -15,7 +9,7 @@ import * as i18n from './i18n';
 import * as themes from './themes';
 import { authSelectors } from './redux/modules/auth';
 
-const { App, Auth, Login, NotFound } = pages;
+const { App, Auth, Login, Register, NotFound } = pages;
 
 const initialState = {};
 export const store = createStore(initialState);
@@ -42,8 +36,8 @@ class Root extends React.Component {
               <IndexRedirect to="/login" />
               <Route component={Auth}>
                 <Route path="/login" onEnter={onLoginEnter} component={Login} />
-                {/* <Route path="/signup" component={SignupContainer} />
-                <Route
+                <Route path="/register" component={Register} />
+                {/*<Route
                   path="/begin-password-reset"
                   component={BeginPasswordResetContainer}
                 />
