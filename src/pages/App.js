@@ -1,4 +1,3 @@
-import { connect } from 'react-redux';
 import React from 'react';
 
 const App = ({ children }) => (
@@ -7,5 +6,4 @@ const App = ({ children }) => (
   </div>
 );
 
-const mapStateToProps = state => ({});
-export default connect(mapStateToProps, null)(App);
+export default App;
