@@ -19,7 +19,6 @@ const AuthFrame = styled(Pannel)`
 
 class Auth extends Component {
   render() {
-    const { isAuthenticated } = this.props;
     return (
       <div>
         <MainLayout>

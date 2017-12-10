@@ -1,10 +1,10 @@
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
-import Loader from 'react-loader';
 import Input from '../../../components/forms/Input';
 import Button from '../../../components/Button';
 import H2 from '../../../components/H2';
-import styled, { withTheme } from 'styled-components';
+import styled from 'styled-components';
 import { Link } from 'react-router';
+import Loader from 'react-loader';
 import React from 'react';
 import Color from 'color';
 
