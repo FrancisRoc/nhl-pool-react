@@ -9,7 +9,7 @@ import * as i18n from './i18n';
 import * as themes from './themes';
 import { authSelectors } from './redux/modules/auth';
 
-const { App, Auth, Login, Register, NotFound } = pages;
+const { App, Auth, Login, Register, PoolsView, NotFound } = pages;
 
 const initialState = {};
 export const store = createStore(initialState);
@@ -50,6 +50,7 @@ class Root extends React.Component {
                   component={SuccessNewClient}
                 /> */}
               </Route>
+              <Route path="/pools" component={PoolsView} />
               <Route path="*" component={NotFound} />
             </Route>
           </Router>

@@ -13,7 +13,7 @@ const extendUrl = (url, params) =>
 const extendHeader = (headers = {}) => {
   const extendedHeader = {
     ...headers,
-    Authorization: `Bearer ${get('id_token')}`,
+    Authorization: `Bearer ${get('token')}`,
   };
   return extendedHeader;
 };
