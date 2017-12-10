@@ -1,8 +1,9 @@
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
+import Loader from 'react-loader';
 import Input from '../../../components/forms/Input';
 import Button from '../../../components/Button';
 import H2 from '../../../components/H2';
-import styled from 'styled-components';
+import styled, { withTheme } from 'styled-components';
 import { Link } from 'react-router';
 import React from 'react';
 import Color from 'color';
@@ -62,6 +63,8 @@ const ActionsSection = styled.div`
   padding-left: 35px;
 `;
 const LoginButton = styled(Button)`
+  display: flex;
+  justify-content: center;
   width: 100%;
   margin: 8px 0;
 `;
@@ -81,6 +84,19 @@ const RegisterLink = styled(Link)`
         .toString()};
   }
 `;
+
+const LoadingState = styled.div`
+  padding: 0 10px;
+  height: 20px;
+  width: 20px;
+  border-radius: 5px;
+  position: relative;
+`;
+const Loading = () => (
+  <LoadingState>
+    <Loader color="white" top="50%" left="50%" scale={0.4} />
+  </LoadingState>
+);
 
 class Login extends React.Component {
   constructor(props) {
@@ -102,10 +118,10 @@ class Login extends React.Component {
 
   render() {
     const { formatMessage } = this.props.intl;
+    const { isFetching } = this.props;
     return (
       <LoginForm
         onKeyPress={e => {
-          console.log('KETPRESS: ', e.key);
           if (e.key === 'Enter') {
             this.onSubmit(this.state.email, this.state.password);
           }
@@ -137,10 +153,12 @@ class Login extends React.Component {
         </InputWrapper>
         <ActionsSection>
           <LoginButton
+            disabled={isFetching}
             btnType="accent"
             onClick={() => this.onSubmit(this.state.email, this.state.password)}
           >
             <FormattedMessage {...messages.loginButton} />
+            {isFetching ? <Loading /> : null}
           </LoginButton>
           <NewMemberText>
             <FormattedMessage {...messages.newMember} />

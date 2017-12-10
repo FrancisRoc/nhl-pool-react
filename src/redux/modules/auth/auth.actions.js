@@ -1,6 +1,6 @@
 import types from './auth.types.js';
 
-const loginRequest = credentials => {
+const loginRequest = () => {
   return {
     type: types.LOGIN_REQUEST,
   };

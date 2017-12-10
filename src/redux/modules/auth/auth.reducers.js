@@ -3,7 +3,7 @@ import storage from '../../../utils/storage';
 
 const initialState = () => ({
   isFetching: false,
-  isAuthenticated: storage.get('id_token') ? true : false,
+  isAuthenticated: storage.get('token') ? true : false,
 });
 
 export default function reducer(state = initialState(), action = {}) {
@@ -11,8 +11,7 @@ export default function reducer(state = initialState(), action = {}) {
     case types.LOGIN_REQUEST:
       return {
         ...state,
-        isFetching: false,
-        errorType: null,
+        isFetching: true,
       };
     case types.LOGIN_SUCCESS:
       return {
@@ -25,7 +24,6 @@ export default function reducer(state = initialState(), action = {}) {
         ...state,
         isFetching: false,
         isAuthenticated: false,
-        errorType: action.errorType,
       };
     default:
       return state;

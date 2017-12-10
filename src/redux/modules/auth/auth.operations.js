@@ -5,7 +5,7 @@ import * as authApi from '../../../api/authHttp';
 // import * as accountApi from '../../../api/account';
 
 const login = credentials => dispatch => {
-  dispatch(actions.loginRequest);
+  dispatch(actions.loginRequest());
   return authApi
     .login(credentials)
     .then(res => {

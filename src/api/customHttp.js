@@ -40,7 +40,6 @@ export function json(res) {
 export const JSON_HEADER = { 'Content-type': 'application/json' };
 
 export function endpointCall(url, options = {}) {
-  console.log('REQUEST: ', ENDPOINT_PREFIX + url, options);
   return fetch(ENDPOINT_PREFIX + url, options).then(status);
 }
 

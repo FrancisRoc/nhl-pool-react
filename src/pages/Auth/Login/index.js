@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import Login from './Login';
-import { authOperations } from '../../../redux/modules/auth';
+import { authOperations, authSelectors } from '../../../redux/modules/auth';
 
-const mapStateToProps = () => {
-  return {};
-};
+const mapStateToProps = state => ({
+  isFetching: authSelectors.isFetching(state),
+});
 const mapDispatchToProps = dispatch => ({
   onLogin: credentials => dispatch(authOperations.login(credentials)),
 });

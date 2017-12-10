@@ -11,6 +11,7 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-intl": "^2.4.0",
+    "react-loader": "^2.4.2",
     "react-redux": "^5.0.6",
     "react-router": "^3.0.2",
     "react-scripts": "1.0.17",
@@ -27,9 +28,6 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.js": [
-      "prettier --single-quote --trailing-comma es5 --write",
-      "git add"
-    ]
+    "*.js": ["prettier --single-quote --trailing-comma es5 --write", "git add"]
   }
 }
