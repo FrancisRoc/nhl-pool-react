@@ -1,4 +1,5 @@
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
+import ButtonLoader from '../../../components/loaders/ButtonLoader';
 import { login_error_id } from '../../../constants/errors';
 import ErrorBox from '../../../components/errors/ErrorBox';
 import Input from '../../../components/forms/Input';
@@ -87,19 +88,6 @@ const RegisterLink = styled(Link)`
   }
 `;
 
-const LoadingState = styled.div`
-  padding: 0 10px;
-  height: 20px;
-  width: 20px;
-  border-radius: 5px;
-  position: relative;
-`;
-const Loading = () => (
-  <LoadingState>
-    <Loader color="white" top="50%" left="50%" scale={0.4} />
-  </LoadingState>
-);
-
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -161,7 +149,7 @@ class Login extends React.Component {
             onClick={() => this.onSubmit(this.state.email, this.state.password)}
           >
             <FormattedMessage {...messages.loginButton} />
-            {isFetching ? <Loading /> : null}
+            {isFetching ? <ButtonLoader /> : null}
           </LoginButton>
           <NewMemberText>
             <FormattedMessage {...messages.newMember} />
