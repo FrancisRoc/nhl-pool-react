@@ -1,4 +1,5 @@
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
+import ButtonLoader from '../../../components/loaders/ButtonLoader';
 import Input from '../../../components/forms/Input';
 import Button from '../../../components/Button';
 import H2 from '../../../components/H2';
@@ -137,7 +138,7 @@ class Register extends React.Component {
     this.setState({ confirmPassword: newValue });
   };
 
-  onSubmit = (firstName, lastName, email, password) => {
+  onSubmit = (first_name, last_name, email, password, locale) => {
     const errors = this.validate();
     const errorKeys = Object.keys(errors);
     for (let i = 0; i < errorKeys.length; i++) {
@@ -146,6 +147,8 @@ class Register extends React.Component {
         return false;
       }
     }
+    // No errors -> validate
+    this.props.register({ first_name, last_name, email, password, locale });
   };
 
   validate = () => {
@@ -173,6 +176,7 @@ class Register extends React.Component {
 
   render() {
     const { formatMessage } = this.props.intl;
+    const { locale, isFetching } = this.props;
     const errors = this.validate();
     return (
       <RegisterForm>
@@ -251,17 +255,20 @@ class Register extends React.Component {
           </ErrorMessage>
         </InputWrapper>
         <RegisterButton
+          disabled={isFetching}
           btnType="accent"
           onClick={() =>
             this.onSubmit(
               this.state.firstName,
               this.state.lastName,
               this.state.email,
-              this.state.password
+              this.state.password,
+              locale
             )
           }
         >
           <FormattedMessage {...messages.signUp} />
+          {isFetching ? <ButtonLoader /> : null}
         </RegisterButton>
       </RegisterForm>
     );

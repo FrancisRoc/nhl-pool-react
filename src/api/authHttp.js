@@ -8,3 +8,4 @@ const _emailPass = path => credentials =>
   }).then(json);
 
 export const login = _emailPass('/members/login');
+export const register = _emailPass('/members/register');

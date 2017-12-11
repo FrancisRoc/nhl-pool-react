@@ -1,13 +1,14 @@
-import React from 'react';
 import { Router, Route, IndexRedirect, browserHistory } from 'react-router';
-import { connect } from 'react-redux';
-import { IntlProvider } from 'react-intl';
+import { authSelectors, authOperations } from './redux/modules/auth';
 import { ThemeProvider } from 'styled-components';
+import { IntlProvider } from 'react-intl';
 import createStore from './redux/create';
+import { connect } from 'react-redux';
+import * as themes from './themes';
+import { get } from './utils/storage';
 import * as pages from './pages';
 import * as i18n from './i18n';
-import * as themes from './themes';
-import { authSelectors } from './redux/modules/auth';
+import React from 'react';
 
 const { App, Auth, Login, Register, PoolsView, NotFound } = pages;
 
@@ -16,7 +17,7 @@ export const store = createStore(initialState);
 
 class Root extends React.Component {
   componentWillMount() {
-    //this.props.onMount();
+    this.props.onMount();
   }
 
   render() {
@@ -68,7 +69,7 @@ const mapStateToProps = ({ account, auth }) => {
   };
 };
 const mapDispatchToProps = dispatch => ({
-  // onMount: () => dispatch(authOperations.loadProfile(get('token'))),
+  onMount: () => dispatch(authOperations.loadProfile(get('token'))),
   onLoginEnter: () => {
     const state = store.getState();
     if (authSelectors.isAuthenticated(state)) {
