@@ -4,6 +4,7 @@ import { authOperations, authSelectors } from '../../../redux/modules/auth';
 
 const mapStateToProps = state => ({
   isFetching: authSelectors.isFetching(state),
+  isAuthError: authSelectors.isAuthError(state),
 });
 const mapDispatchToProps = dispatch => ({
   onLogin: credentials => dispatch(authOperations.login(credentials)),

@@ -16,4 +16,7 @@ export default {
   'register.minLenghtError': 'Minimum 2 caractères',
   'register.confirmPassword': 'Confirmation du mot de passe',
   'register.passwordMatchError': 'Les mots de passe ne correspondent pas',
+
+  'error.defaultMessage': 'Erreur, veuillez réessayer plus tard.',
+  'error.loginError': 'Email ou mot de passe invalide, veuillez réessayer.',
 };

@@ -1,10 +1,12 @@
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
-import ButtonLoader from '../../../components/loaders/ButtonLoader';
+import { login_error_id } from '../../../constants/errors';
+import ErrorBox from '../../../components/errors/ErrorBox';
 import Input from '../../../components/forms/Input';
 import Button from '../../../components/Button';
 import H2 from '../../../components/H2';
 import styled from 'styled-components';
 import { Link } from 'react-router';
+import Loader from 'react-loader';
 import React from 'react';
 import Color from 'color';
 
@@ -85,6 +87,19 @@ const RegisterLink = styled(Link)`
   }
 `;
 
+const LoadingState = styled.div`
+  padding: 0 10px;
+  height: 20px;
+  width: 20px;
+  border-radius: 5px;
+  position: relative;
+`;
+const Loading = () => (
+  <LoadingState>
+    <Loader color="white" top="50%" left="50%" scale={0.4} />
+  </LoadingState>
+);
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -105,7 +120,7 @@ class Login extends React.Component {
 
   render() {
     const { formatMessage } = this.props.intl;
-    const { isFetching } = this.props;
+    const { isFetching, isAuthError } = this.props;
     return (
       <LoginForm
         onKeyPress={e => {
@@ -117,6 +132,7 @@ class Login extends React.Component {
         <H2>
           <FormattedMessage {...messages.welcome} />
         </H2>
+        {isAuthError ? <ErrorBox errorId={login_error_id} /> : null}
         <InputWrapper>
           <IconWrapper>
             <InputIcon className="fa fa-envelope fa-lg" />
@@ -145,7 +161,7 @@ class Login extends React.Component {
             onClick={() => this.onSubmit(this.state.email, this.state.password)}
           >
             <FormattedMessage {...messages.loginButton} />
-            {isFetching ? <ButtonLoader /> : null}
+            {isFetching ? <Loading /> : null}
           </LoginButton>
           <NewMemberText>
             <FormattedMessage {...messages.newMember} />

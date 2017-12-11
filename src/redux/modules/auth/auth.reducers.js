@@ -4,6 +4,7 @@ import storage from '../../../utils/storage';
 const initialState = () => ({
   isFetching: false,
   isAuthenticated: storage.get('token') ? true : false,
+  errorType: null,
 });
 
 export default function reducer(state = initialState(), action = {}) {
@@ -29,6 +30,7 @@ export default function reducer(state = initialState(), action = {}) {
         ...state,
         isFetching: false,
         isAuthenticated: false,
+        errorType: action.errorType,
       };
     default:
       return state;
