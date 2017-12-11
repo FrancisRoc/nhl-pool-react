@@ -1,4 +1,6 @@
 export default {
+  'menu.appName': 'Aide au pool LNH',
+
   'login.welcome': 'Se connecter',
   'login.email': 'Courriel',
   'login.emailError': 'Courriel invalide',
