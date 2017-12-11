@@ -13,7 +13,7 @@ const MainLayout = styled.div`
 const AuthFrame = styled(Pannel)`
   margin-left: auto;
   margin-right: auto;
-  max-width: 450px;
+  max-width: 475px;
   padding: 20px;
 `;
 
