@@ -44,6 +44,10 @@ const StyledLinkText = styled.p`
   font-size: 14px;
 `;
 
+const LogoutIcon = styled.i`
+  padding: 0 5px;
+`;
+
 const LinkTab = ({ theme }) => (
   <FlattenLinks>
     <StyledLinkTab
@@ -57,6 +61,7 @@ const LinkTab = ({ theme }) => (
     </StyledLinkTab>
     <StyledLinkTab>
       <StyledLinkText>
+        <LogoutIcon className="fa fa-sign-out fa-lg" />
         <FormattedMessage {...messages.menuLinkLogout} />
       </StyledLinkText>
     </StyledLinkTab>

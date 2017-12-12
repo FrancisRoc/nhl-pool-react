@@ -8,7 +8,7 @@ const MainLayout = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 30px;
+  padding: 30px 95px;
 `;
 
 class Dashboard extends React.Component {

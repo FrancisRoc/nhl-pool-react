@@ -19,6 +19,12 @@ export default {
   'register.confirmPassword': 'Confirmation du mot de passe',
   'register.passwordMatchError': 'Les mots de passe ne correspondent pas',
 
+  'pools.newPoolPannel': 'Créer un nouveau pool',
+  'pools.newPoolWithBasis': 'Copier un pool',
+  'pools.newPoolWithBasisText':
+    'Vous avez déjà créer un pool? Sauver du temps en partant de celui-ci.',
+  'pools.members': 'Membres',
+
   'error.defaultMessage': 'Erreur, veuillez réessayer plus tard.',
   'error.loginError': 'Email ou mot de passe invalide, veuillez réessayer.',
 };
