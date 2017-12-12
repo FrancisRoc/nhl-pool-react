@@ -10,7 +10,7 @@ import * as pages from './pages';
 import * as i18n from './i18n';
 import React from 'react';
 
-const { App, Auth, Login, Register, PoolsView, NotFound } = pages;
+const { App, Auth, Login, Register, Dashboard, PoolsView, NotFound } = pages;
 
 const initialState = {};
 export const store = createStore(initialState);
@@ -51,7 +51,10 @@ class Root extends React.Component {
                   component={SuccessNewClient}
                 /> */}
               </Route>
-              <Route path="/pools" component={PoolsView} />
+              <Route path="/dashboard" component={Dashboard}>
+                <IndexRedirect to="/dashboard/pools" />
+                <Route path="/dashboard/pools" component={PoolsView} />
+              </Route>
               <Route path="*" component={NotFound} />
             </Route>
           </Router>
@@ -73,7 +76,7 @@ const mapDispatchToProps = dispatch => ({
   onLoginEnter: () => {
     const state = store.getState();
     if (authSelectors.isAuthenticated(state)) {
-      browserHistory.push('pools');
+      browserHistory.push('dashboard');
     }
   },
 });

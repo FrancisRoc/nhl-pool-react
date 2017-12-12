@@ -7,7 +7,6 @@ import Button from '../../../components/Button';
 import H2 from '../../../components/H2';
 import styled from 'styled-components';
 import { Link } from 'react-router';
-import Loader from 'react-loader';
 import React from 'react';
 import Color from 'color';
 

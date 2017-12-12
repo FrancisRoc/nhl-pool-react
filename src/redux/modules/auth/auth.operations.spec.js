@@ -33,7 +33,7 @@ describe('auth operations', () => {
           expect(authApi.login).toHaveBeenCalledWith(mockCredentials);
           expect(storage.put).toHaveBeenCalledTimes(2);
           expect(storage.put).toHaveBeenLastCalledWith('id', mockRes.id);
-          expect(browserHistory.push).toHaveBeenCalledWith('/pools');
+          expect(browserHistory.push).toHaveBeenCalledWith('/dashboard');
         });
     });
   });

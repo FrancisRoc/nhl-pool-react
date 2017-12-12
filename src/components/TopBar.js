@@ -15,14 +15,16 @@ const TopBarWrapper = styled.div`
   color: ${props => props.theme.palette.white};
   height: 50px;
   display: flex;
+  justify-content: space-between;
 `;
 
-const PullLeft = styled.div`
+const Links = styled.div`
   display: flex;
   align-items: center;
+  padding: 0 40px;
 `;
 const Logo = styled.img`
-  padding: 0 10px 0 20px;
+  padding: 0 10px;
   height: 30px;
 `;
 const AppName = styled.div`
@@ -35,12 +37,13 @@ const AppName = styled.div`
 
 const TopBar = ({ links }) => (
   <TopBarWrapper>
-    <PullLeft>
+    <Links>
       <Logo src="/assets/logo.png" alt="Plan" />
       <AppName>
         <FormattedMessage {...messages.appName} />
       </AppName>
-    </PullLeft>
+    </Links>
+    <Links>{links}</Links>
   </TopBarWrapper>
 );
 

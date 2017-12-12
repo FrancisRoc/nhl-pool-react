@@ -31,7 +31,7 @@ const login = credentials => dispatch => {
       return dispatch(actions.loginSuccess(res));
     })
     .then(() => {
-      browserHistory.push('/pools');
+      browserHistory.push('/dashboard');
     })
     .catch(err => dispatch(actions.loginFailure(err)));
 };
@@ -46,7 +46,7 @@ const register = credentials => dispatch => {
       return dispatch(actions.registerSuccess(res));
     })
     .then(() => {
-      browserHistory.push('/pools');
+      browserHistory.push('/dashboard');
     })
     .catch(err => dispatch(actions.registerFailure(err)));
 };
