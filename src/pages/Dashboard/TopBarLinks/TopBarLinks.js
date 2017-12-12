@@ -48,7 +48,7 @@ const LogoutIcon = styled.i`
   padding: 0 5px;
 `;
 
-const LinkTab = ({ theme }) => (
+const LinkTab = ({ theme, logout }) => (
   <FlattenLinks>
     <StyledLinkTab
       to={'/dashboard/pools'}
@@ -59,7 +59,7 @@ const LinkTab = ({ theme }) => (
         <FormattedMessage {...messages.menuLinkPool} />
       </StyledLinkText>
     </StyledLinkTab>
-    <StyledLinkTab>
+    <StyledLinkTab onClick={logout}>
       <StyledLinkText>
         <LogoutIcon className="fa fa-sign-out fa-lg" />
         <FormattedMessage {...messages.menuLinkLogout} />

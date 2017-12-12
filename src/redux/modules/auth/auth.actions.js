@@ -44,6 +44,10 @@ const loadProfileUnauthorized = () => ({
   type: types.LOAD_PROFILE_UNAUTHORIZED,
 });
 
+const logoutSuccess = () => ({
+  type: types.LOGOUT_SUCCESS,
+});
+
 export default {
   loginRequest,
   loginSuccess,
@@ -55,4 +59,6 @@ export default {
 
   loadProfileSucces,
   loadProfileUnauthorized,
+
+  logoutSuccess,
 };

@@ -1,6 +1,6 @@
 import { browserHistory } from 'react-router';
 import actions from './auth.actions';
-import { put /*, remove*/ } from '../../../utils/storage';
+import { put, remove } from '../../../utils/storage';
 import * as authApi from '../../../api/authHttp';
 import * as accountApi from '../../../api/accountHttp';
 
@@ -51,8 +51,17 @@ const register = credentials => dispatch => {
     .catch(err => dispatch(actions.registerFailure(err)));
 };
 
+const logout = () => dispatch => {
+  remove('id');
+  remove('token');
+  dispatch(actions.logoutSuccess());
+  browserHistory.push('/');
+  return Promise.resolve(); // To keep consistency between operations
+};
+
 export default {
   loadProfile,
   login,
   register,
+  logout,
 };

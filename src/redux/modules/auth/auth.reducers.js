@@ -26,6 +26,7 @@ export default function reducer(state = initialState(), action = {}) {
     case types.LOGIN_FAILURE:
     case types.LOAD_PROFILE_UNAUTHORIZED:
     case types.REGISTER_FAILURE:
+    case types.LOGOUT_SUCCESS:
       return {
         ...state,
         isFetching: false,

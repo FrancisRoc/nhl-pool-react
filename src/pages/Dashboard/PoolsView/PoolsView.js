@@ -102,7 +102,12 @@ const Divider = styled.div`
   height: 0;
 `;
 const PoolPannelFooter = styled.div`
-  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 8px 0;
+`;
+const FooterIcon = styled.i`
+  padding: 5px;
 `;
 
 class PoolsView extends React.Component {
@@ -157,7 +162,18 @@ class PoolsView extends React.Component {
               </Member>
             </Members>
             <Divider />
-            <PoolPannelFooter>TODO</PoolPannelFooter>
+            <PoolPannelFooter>
+              <div>
+                <span>Edit</span>
+                <FooterIcon className="fa fa-pencil" />
+                <span>Delete</span>
+                <FooterIcon className="fa fa-trash" />
+              </div>
+              <div>
+                <span>Open</span>
+                <FooterIcon className="fa fa-arrow-right" />
+              </div>
+            </PoolPannelFooter>
           </PoolPannel>
         </PoolsPresentation>
       </div>
