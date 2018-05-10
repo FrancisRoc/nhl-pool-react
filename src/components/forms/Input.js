@@ -45,7 +45,7 @@ const Input = props => {
   return (
     <InputWrapper>
       <StyledInput {...input} {...props} />
-      {touched && error ? <InputError>{error}</InputError> : null}
+      {touched && error && <InputError>{error}</InputError>}
     </InputWrapper>
   );
 };
