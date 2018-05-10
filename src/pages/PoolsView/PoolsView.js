@@ -1,8 +1,14 @@
 import React from 'react';
+import TopBar from '../../components/TopBar';
 
 class PoolsView extends React.Component {
   render() {
-    return <div>TODO</div>;
+    return (
+      <div>
+        <TopBar />
+        <span>TODO</span>
+      </div>
+    );
   }
 }
 

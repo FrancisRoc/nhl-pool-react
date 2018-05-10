@@ -37,7 +37,9 @@ export function json(res) {
   return res.json();
 }
 
-export const JSON_HEADER = { 'Content-type': 'application/json' };
+export const JSON_HEADER = {
+  'Content-type': 'application/json',
+};
 
 export function endpointCall(url, options = {}) {
   return fetch(ENDPOINT_PREFIX + url, options).then(status);
