@@ -7,10 +7,9 @@ const messages = defineMessages({
   },
 });
 
-export const login_error_id = 'login_error';
 export const errorsConstants = {
-  login_error: {
-    id: login_error_id,
+  email_or_pass: {
+    id: 'email_or_pass',
     message: messages.loginError,
   },
 };

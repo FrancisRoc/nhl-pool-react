@@ -14,7 +14,7 @@ const loginSuccess = info => {
 const loginFailure = error => {
   return {
     type: types.LOGIN_FAILURE,
-    errorType: error.type,
+    error,
   };
 };
 
@@ -32,7 +32,7 @@ const registerSuccess = info => {
 const registerFailure = error => {
   return {
     type: types.REGISTER_FAILURE,
-    errorType: error.type,
+    error,
   };
 };
 

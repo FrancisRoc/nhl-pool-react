@@ -110,7 +110,7 @@ class ErrorBoxClass extends Component {
   }
 
   render() {
-    const { errorId, duration } = this.props;
+    const { errorType, duration } = this.props;
     return (
       <ErrorContainer show={this.state.show}>
         {duration ? (
@@ -122,8 +122,8 @@ class ErrorBoxClass extends Component {
           <i className="fa fa-times-circle fa-lg" />
         </MessageIcon>
         <Message>
-          {errorId ? (
-            <FormattedMessage {...errorsConstants[errorId].message} />
+          {errorType ? (
+            <FormattedMessage {...errorsConstants[errorType].message} />
           ) : (
             <FormattedMessage {...messages.defaultMessage} />
           )}

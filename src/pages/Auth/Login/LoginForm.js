@@ -76,13 +76,13 @@ const RegisterLink = styled(Link)`
 
 let LoginForm = props => {
   const { formatMessage } = props.intl;
-  const { handleSubmit, pristine, submitting, isAuthError } = props;
+  const { handleSubmit, pristine, submitting, errorType } = props;
   return (
     <Form onSubmit={handleSubmit}>
       <H2>
         <FormattedMessage {...messages.welcome} />
       </H2>
-      {isAuthError ? <ErrorBox errorId={login_error_id} /> : null}
+      {errorType && <ErrorBox errorType={errorType} />}
       <InputWrapper>
         <Field
           name="email"

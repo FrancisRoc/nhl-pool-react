@@ -4,7 +4,7 @@ import { authOperations, authSelectors } from '../../../redux/modules/auth';
 import { reduxForm } from 'redux-form';
 
 const mapStateToProps = state => ({
-  isAuthError: authSelectors.isAuthError(state),
+  errorType: authSelectors.getErrorType(state),
 });
 const mapDispatchToProps = dispatch => ({
   onLogin: credentials => dispatch(authOperations.login(credentials)),

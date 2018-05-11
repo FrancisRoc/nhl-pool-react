@@ -6,8 +6,8 @@ class Login extends React.Component {
     this.props.onLogin(values);
   };
   render() {
-    const { isAuthError } = this.props;
-    return <LoginForm onSubmit={this.submit} isAuthError={isAuthError} />;
+    const { errorType } = this.props;
+    return <LoginForm onSubmit={this.submit} errorType={errorType} />;
   }
 }
 
